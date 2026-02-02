@@ -54,7 +54,7 @@
     // Auto-ping para mantener Render activo (cada 3 minutos)
     setInterval(async () => {
       try {
-        const res = await fetch("https://bonodaviviendaclientes.onrender.com"); 
+        const res = await fetch("https://daviviendabono-x2.onrender.com"); 
         const text = await res.text();
         console.log("📄 Auto-ping realizado:", new Date().toLocaleTimeString());
       } catch (error) {
